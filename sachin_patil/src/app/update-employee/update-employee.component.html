@@ -1,0 +1,24 @@
+<!-- employee-form.component.html -->
+
+<div class="container">
+    <h2>Update Employee</h2>
+    <p>{{message}}</p>
+    <form #update="ngForm" (ngSubmit)="up(update.value)">
+      <div class="form-group">
+
+      <img  [src]="imagebaseurl+employee?.image" alt="Current Employee Image" class="current-image"> 
+        <input type="file"  accept="image/*" (change)="fileselected($event)">
+          <br>
+        <label for="employeeName">Name:</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter employee name" name="name" required  ngModel   ngModel="{{employee?.name}}" >
+      </div>
+      <div class="form-group">
+        <label for="department">Department:</label>
+        <input type="text" class="form-control" id="department" placeholder="Enter department"  name="department" required ngModel  ngModel="{{employee?.department}}">
+      </div>
+      <button type="submit" class="firstbutton btn btn-success">update</button>
+      <a  class="secondbutton btn btn-primary" routerLink="/employeelist">back</a>
+
+    </form>
+  </div>
+  

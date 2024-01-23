@@ -1,0 +1,41 @@
+
+
+<div class="Employee-list">
+    <h1>Employee </h1>
+    <p class="message-p"></p>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>Image</th>
+          <th>name</th>
+         <!-- <th>mobileno</th>  -->
+          <th>department</th>
+          
+        </tr>
+      </thead>
+  
+      <tbody>
+        <tr *ngIf="employee">
+            <!-- <td>{{employee?.id}}</td> -->
+          <!-- <td><img src=""/></td> -->
+          <td>{{employee.id}}</td>
+          <td><img [src]="imagebaseurl+employee.image" alt="" class="Image"></td>
+          
+          <td>{{employee.name}}</td>
+
+            <!-- <td>{{items.mobileno}}</td> -->
+          <td>{{employee.department}}</td>
+          <td><button class="btn btn-danger"(click)="delete(employee.id)">delete</button>
+          <a routerLink="/update-employee/{{employee.id}}" class="btn btn-success">update</a>
+        </td>
+
+
+        
+  
+          <!-- <td><button (click)="delete(items.id)">Delete</button></td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

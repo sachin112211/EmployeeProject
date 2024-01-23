@@ -1,0 +1,38 @@
+<div class="Employee-list">
+    <h1>Employee List</h1>
+    <p class="message-p"></p>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>Image</th>
+          <th>name</th>
+         <!-- <th>mobileno</th>  -->
+          <th>department</th>
+          
+        </tr>
+      </thead>
+  
+      <tbody>
+        <tr *ngFor="let items of employeelist">
+          <!-- <td><img src=""/></td> -->
+          <td>{{items.id}}</td>
+          <td><img [src]="imagebaseurl+items.image" alt="" class="Image"></td>
+          
+          <td>{{items.name}}</td>
+
+            <!-- <td>{{items.mobileno}}</td> -->
+          <td>{{items.department}}</td>
+          <td><button class="btn btn-danger"(click)="delete(items.id)">delete</button>
+          <a routerLink="/update-employee/{{items.id}}" class="btn btn-success">update</a>
+        </td>
+
+
+        
+  
+          <!-- <td><button (click)="delete(items.id)">Delete</button></td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
