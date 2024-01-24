@@ -32,7 +32,7 @@ delete(id:number){
 
 setTimeout(()=>{
     this.allEmployees();
-  },3000)
+  },2000)
 })
 }
 
