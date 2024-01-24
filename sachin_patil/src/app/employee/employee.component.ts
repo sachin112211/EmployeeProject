@@ -36,7 +36,7 @@ export class EmployeeComponent {
       this.message ="employee created successfully";
         this.router.navigate(['/employeelist'])
   
-   },5000);
+   },2000);
   })
 
 
