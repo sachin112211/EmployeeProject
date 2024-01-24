@@ -17,19 +17,22 @@ export class UpdateEmployeeComponent implements OnInit {
  
  public employee:employee | any;
  id:number=0;
+ Id:any = " ";
  Image:string='';
   imagebaseurl= environment.baseUrl;
-  file:any;
+  file:File | undefined;
   ngOnInit() {
     let employeeid = this.route.snapshot.paramMap.get('id');
 
-    
+    this.Id = employeeid;
 
    employeeid && this.employeelist.getEmployeebyid(employeeid).subscribe((data)=>{
         this.employee = data;
           this.Image=this.employee.image;
           this.id = data.id;
         console.warn(data);
+
+        localStorage.setItem('image', JSON.stringify(this.Image));
 
    })
 
@@ -40,7 +43,7 @@ export class UpdateEmployeeComponent implements OnInit {
   fileselected(event:any){
    this.file = event.target.files[0];
    let reader = new FileReader();
-    reader.readAsDataURL(event.target.files[0]);
+
     
 
   }
@@ -52,11 +55,15 @@ export class UpdateEmployeeComponent implements OnInit {
     data.id = this.employee.id;
    }
    console.warn(data);
+   const localStorageImage = localStorage.getItem('image');
+   data.image = localStorageImage ? JSON.parse(localStorageImage) : '';
 
   let formdata = new FormData()
    //formdata.set('imageFile',this.file);
    formdata.set('name',data.name);
    formdata.set('department',data.department);
+   formdata.set('image',data.image)
+   formdata.set('id',this.Id);
    //data.imageFile=this.file;
    if (this.file) {
     data.imageFile=this.file;
@@ -64,11 +71,14 @@ export class UpdateEmployeeComponent implements OnInit {
 
     formdata.set('imageFile', this.file);
   }
-   //formdata.set('id',this.id);
-   console.warn(formdata);
+
+
+  console.warn(data);
+  
+   
   
 
-this.employeelist.updateEmployee(formdata,this.id).subscribe((result)=>{
+this.employeelist.updateEmployee(formdata,this.Id).subscribe((result)=>{
 
    console.warn(result);
     setTimeout(()=>{
