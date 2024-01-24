@@ -30,8 +30,8 @@ export class EmployeelistService {
    return this.httpclient.get<employee>(this.base_url + '/Students/'+id );
  }
  
- updateEmployee(data:FormData,id:number){
-   return this.httpclient.put<employee>(this.base_url +`/Students/${id}`,data);
+ updateEmployee(formdata:FormData,id:number){
+   return this.httpclient.put<employee>(this.base_url +'/Students/'+id,formdata);
  }
 
 
