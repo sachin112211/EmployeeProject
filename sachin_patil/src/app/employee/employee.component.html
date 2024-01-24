@@ -6,7 +6,7 @@
     <form #employee="ngForm"  (ngSubmit)="createEmployee(employee.value)">
       <div class="form-group">
       <!-- image-upload.component.html -->
-<label>Upload Image</label><br>
+    <img [src]="image" alt="">
 <input type="file" (change)="onFileSelected($event)" accept="image/*" ngModel style="margin-bottom: 25px;"><br>
 
 
