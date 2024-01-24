@@ -46,9 +46,16 @@ export class EmployeeComponent {
 
 onFileSelected(event:any){
   console.warn(event.target.files[0]);
+   if(event.target.files){
+    var reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload =(event:any)=>{
+      this.image=reader.result;
+    }
+   }
+  
   this.imageFile = event.target.files[0];
   console.warn(this.imageFile)
 }
-
 
 }
