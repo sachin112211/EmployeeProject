@@ -87,7 +87,7 @@ this.employeelist.updateEmployee(formdata,this.Id).subscribe((result)=>{
        this.router.navigate(['/employeelist']);
       
 
-    },4000)
+    },2000)
    
    })
    }
