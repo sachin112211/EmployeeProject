@@ -1,20 +1,75 @@
-.update-edit{
+// employee-list.component.scss
 
-    margin-left:20px
-}
-
-button{
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-.Employee-list{
-    margin-bottom: 160px;
-
-}
-
-.Image{
-
-    height: 100px;
-    width: 100px;
-}
+.Employee-list {
+    max-width: 800px;
+    margin: auto;
+  
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+  
+    .message-p {
+      color: #d9534f; // Error message color
+      margin-bottom: 20px;
+    }
+  
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+  
+      th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+  
+        img.Image {
+          max-width: 50px;
+          max-height: 50px;
+          border-radius: 50%;
+          margin-right: 10px;
+        }
+      }
+  
+      th {
+        background-color: #f2f2f2; // Header background color
+      }
+  
+      tr {
+        &:hover {
+          background-color: #f5f5f5; // Hover background color
+        }
+      }
+    }
+  
+    .btn {
+      padding: 8px 15px;
+      font-size: 14px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+  
+    .btn-danger {
+      background-color: #d9534f; // Delete button color
+      color: #fff; // Delete button text color
+      border: none;
+      border-radius: 4px;
+  
+      &:hover {
+        background-color: #c9302c; // Hover color
+      }
+    }
+  
+    .btn-success {
+      background-color: #5bc0de; // Update button color
+      color: #fff; // Update button text color
+      border: none;
+      border-radius: 4px;
+  
+      &:hover {
+        background-color: #46b8da; // Hover color
+      }
+    }
+  }
+  
