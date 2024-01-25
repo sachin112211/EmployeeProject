@@ -31,10 +31,11 @@ export class EmployeeComponent {
   
   }
   this.employeeService.create(formdata).subscribe(employee=>{
+      this.message ="employee created successfully";
 
     console.warn(employee);
     setTimeout(()=>{
-      this.message ="employee created successfully";
+      this.message ="";
         this.router.navigate(['/employeelist'])
   
    },2000);
