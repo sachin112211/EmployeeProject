@@ -1,11 +1,27 @@
+// styles.scss (or your main SCSS file)
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 600px; // Adjust the max-width as needed
+  margin: auto;
+  padding: 20px;
+}
+
 .footer {
-    background-color: black;
-    padding: 10px;
-    position: sticky;
-    bottom: 0;
-    width: 100%;
-    color: white;
+  background-color: #333; // Set your desired background color
+  color: #fff; // Set your desired text color
+  padding: 20px;
+  margin-top: auto; // Push the footer to the bottom
+  flex-shrink: 0; // Prevent the footer from shrinking when content is added
+
+  @media screen and (max-width: 600px) {
+    padding: 10px; // Adjust padding for smaller screens
   }
-  .container{
-    text-align: center;
-  }
+}
