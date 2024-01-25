@@ -79,11 +79,12 @@ export class UpdateEmployeeComponent implements OnInit {
   
 
 this.employeelist.updateEmployee(formdata,this.Id).subscribe((result)=>{
+        this.message = "employee updated successfully";
 
    console.warn(result);
     setTimeout(()=>{
     
-        this.message = "employee updated successfully";
+        this.message = "";
        this.router.navigate(['/employeelist']);
       
 
