@@ -14,6 +14,12 @@ export class EmployeeComponent {
   image:string | any='';
 
 
+  isValidFile(file: File): boolean {
+  const allowedTypes = ['image/jpeg', 'image/png', 'image/gif']; // Add more if needed
+  return file && allowedTypes.includes(file.type);
+}
+
+
  constructor(public employeeService: EmployeeService,private router: Router) { }
  public  message:string ='';
 
