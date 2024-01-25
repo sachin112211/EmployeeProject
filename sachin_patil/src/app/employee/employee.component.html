@@ -1,23 +1,45 @@
 <!-- employee-form.component.html -->
 
 <div class="container">
-    <h2>Create Employee</h2>
-    <h4>{{message}}</h4>
-    <form #employee="ngForm"  (ngSubmit)="createEmployee(employee.value)">
+  <h2>Create Employee</h2>
+  <h4>{{message}}</h4>
+  <form #employeeForm="ngForm" (ngSubmit)="createEmployee(employeeForm.value)" novalidate>
+      <!-- Image upload section -->
+      <img *ngIf="image" [src]="image" alt="">
+      <input type="file" (change)="onFileSelected($event)" accept="image/*" #fileInput  name="file" ngModel required style="margin-bottom: 25px;"><br>
+     
+      <div *ngIf="fileInput.files && fileInput.files.length === 0">
+        File is required.
+    </div>
+    <div *ngIf="fileInput.files && fileInput.files.length > 0 && !isValidFile(fileInput.files[0])">
+        Invalid file type. Please select an image.
+    </div>
+      
+      <!-- Employee name input with validation -->
       <div class="form-group">
-      <!-- image-upload.component.html -->
-    <img *ngIf="image" [src]="image" alt="">
-<input type="file" (change)="onFileSelected($event)" accept="image/*" ngModel style="margin-bottom: 25px;"><br>
-
-
-        <label for="employeeName">Name:</label>
-        <input type="text" class="form-control" id="name" placeholder="Enter employee name" name="name" required  ngModel >
+          <label for="employeeName">Name:</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter employee name"
+                 name="name" required minlength="3" maxlength="50" ngModel>
+          <div *ngIf="employeeForm.controls['name'].invalid && (employeeForm.controls['name'].dirty || employeeForm.controls['name'].touched)">
+              <div *ngIf="employeeForm.controls['name'].hasError('required')">Name is required.</div>
+              <div *ngIf="employeeForm.controls['name'].hasError('minlength')">Name must be at least 3 characters.</div>
+              <div *ngIf="employeeForm.controls['name'].hasError('maxlength')">Name cannot exceed 50 characters.</div>
+          </div>
       </div>
+
+      <!-- Department input with validation -->
       <div class="form-group">
-        <label for="department">Department:</label>
-        <input type="text" class="form-control" id="department" placeholder="Enter department"  name="department" required ngModel>
+          <label for="department">Department:</label>
+          <input type="text" class="form-control" id="department" placeholder="Enter department"
+                 name="department" required minlength="3" maxlength="50" ngModel>
+          <div *ngIf="employeeForm.controls['department'].invalid && (employeeForm.controls['department'].dirty || employeeForm.controls['department'].touched)">
+              <div *ngIf="employeeForm.controls['department'].hasError('required')">Department is required.</div>
+              <div *ngIf="employeeForm.controls['department'].hasError('minlength')">Department must be at least 3 characters.</div>
+              <div *ngIf="employeeForm.controls['department'].hasError('maxlength')">Department cannot exceed 50 characters.</div>
+          </div>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-  </div>
-  
+
+      <!-- Submit and Reset buttons -->
+      <button type="submit" class="btn btn-primary" [disabled]="employeeForm.invalid">Submit</button>
+  </form>
+</div>
