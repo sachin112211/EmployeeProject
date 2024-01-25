@@ -11,6 +11,7 @@ import { Router, RouterLink, RouterModule } from '@angular/router';
 export class EmployeeComponent {
   
   imageFile: any;
+  image:string | any='';
 
 
  constructor(public employeeService: EmployeeService,private router: Router) { }
