@@ -1,8 +1,57 @@
-button{
-    margin-left: 10px;
-    margin-right: 10px;
-}
-img{
-  width: 100px;
-  height: 100px;
+// styles.scss (or your main SCSS file)
+
+.Employee-list {
+  max-width: 800px; // Adjust the max-width as needed
+  margin: auto;
+  padding: 20px;
+
+  h1 {
+    color: #333; // Set your desired heading color
+    margin-bottom: 20px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2; // Set your desired header background color
+    }
+
+    img {
+      max-width: 50px; // Adjust the max-width for the image as needed
+      max-height: 50px; // Adjust the max-height for the image as needed
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+      margin-right: 5px;
+    }
+  }
+
+  .btn-danger {
+    background-color: #d9534f; // Set your desired delete button color
+    color: #fff; // Set your desired delete button text color
+
+    &:hover {
+      background-color: #c9302c; // Hover color
+    }
+  }
+
+  .btn-success {
+    background-color: #5cb85c; // Set your desired update button color
+    color: #fff; // Set your desired update button text color
+
+    &:hover {
+      background-color: #4cae4c; // Hover color
+    }
+  }
 }
